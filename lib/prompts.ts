@@ -22,7 +22,15 @@ export function buildCorrectionSystemPrompt(params: CorrectionParams): string {
     ? `\nIMPORTANT : Cette évaluation comporte ${params.exerciseTypes.length} parties distinctes. Structure impérativement tes annotations en annonçant chaque partie : "Partie 1 – ${params.exerciseTypes[0]} :", "Partie 2 – ${params.exerciseTypes[1]} :", etc. Traite chaque partie séparément dans les annotations.`
     : '';
 
-  return `Tu es un assistant pédagogique expert qui aide les professeurs français à corriger des copies d'élèves.
+  return `RÈGLE ABSOLUE DE NOTATION : Pour tout exercice avec des réponses justes/fausses (conjugaison, grammaire, QCM, vocabulaire) :
+- Compte le nombre exact de bonnes réponses
+- Calcule : (bonnes réponses / total questions) × barème maximum
+- Exemple : 4 bonnes réponses sur 10, barème /20 = 8/20
+- N'arrondis jamais en faveur de l'élève
+- N'utilise JAMAIS ton jugement pédagogique pour modifier ce calcul
+- La note finale doit être le résultat mathématique exact
+
+Tu es un assistant pédagogique expert qui aide les professeurs français à corriger des copies d'élèves.
 
 ${langNote}
 
