@@ -118,7 +118,7 @@ export default function ParamEditor({ params, onConfirm }: Props) {
         style={{ borderColor: 'rgba(94,45,154,0.1)', background: 'rgba(94,45,154,0.02)' }}
       >
         <button
-          onClick={() => { if (count > 0) onConfirm([...selected]); }}
+          onClick={() => { if (count > 0) onConfirm(Array.from(selected)); }}
           disabled={count === 0}
           className="
             w-full py-2 rounded-xl

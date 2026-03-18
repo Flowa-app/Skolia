@@ -61,7 +61,7 @@ export default function ExerciseTypePicker({ initial = [], onConfirm }: Props) {
         })}
       </div>
       <button
-        onClick={() => { if (count > 0) onConfirm([...selected]); }}
+        onClick={() => { if (count > 0) onConfirm(Array.from(selected)); }}
         disabled={count === 0}
         className="
           w-full py-2.5 rounded-xl
