@@ -24,7 +24,7 @@ async function pdfFirstPageToPng(dataUrl: string): Promise<string> {
   canvas.width  = viewport.width;
   canvas.height = viewport.height;
 
-  await page.render({ canvasContext: canvas.getContext('2d')!, viewport }).promise;
+  await page.render({ canvasContext: canvas.getContext('2d')!, canvas, viewport }).promise;
 
   return canvas.toDataURL('image/png').split(',')[1];
 }
